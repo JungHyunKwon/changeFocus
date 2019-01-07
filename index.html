@@ -4,15 +4,19 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, minimum-scale=1.0, maximum-scale=2.0, user-scalable=yes" />
-	<title>moveFocus</title>
+	<title>changeFocus</title>
 	<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
-	<script src="js/jquery.moveFocus.min.js"></script>
+	<script src="js/jquery.changeFocus.min.js"></script>
 	<script>
 		$(function() {
 			var $div = $('div');
 
 			$(document).on('click', function(event) {
-				$div.moveFocus();
+				$div.changeFocus(function() {
+					console.log('before');
+				});
+
+				console.log('after');
 			});
 		});
 	</script>

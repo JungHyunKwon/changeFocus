@@ -9,14 +9,21 @@ try {
 		//제이쿼리가 함수일 때
 		if(typeof $ === 'function') {
 			/**
-			 * @name moveFocus
+			 * @name changeFocus
 			 * @since 2019-01-07
+			 * @param {function} beforeChange
 			 * @return {jQuery}
 			 */
-			$.fn.moveFocus = function() {
+			$.fn.changeFocus = function(beforeChange) {
 				var $thisFirst = this.first(),
 					hasTabindex = $thisFirst.attr('tabindex');
 				
+				//beforeChange 매개변수가 함수일 때
+				if(typeof beforeChange === 'function') {
+					beforeChange();
+				}
+				
+				//tabindex 속성을 가지고 있지 않을 때
 				if(!hasTabindex) {
 					$thisFirst.attr('tabindex', -1);
 				}
