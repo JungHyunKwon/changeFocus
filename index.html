@@ -10,10 +10,12 @@
 	<script>
 		$(function() {
 			var $div = $('div');
+			
+			console.log('before');
 
 			$(document).on('click', function(event) {
 				$div.changeFocus(function() {
-					console.log('before');
+					console.log('middle');
 				});
 
 				console.log('after');
