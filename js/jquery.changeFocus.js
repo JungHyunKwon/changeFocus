@@ -11,17 +11,12 @@ try {
 			/**
 			 * @name changeFocus
 			 * @since 2019-01-07
-			 * @param {function} beforeChange
+			 * @param {function} callback
 			 * @return {jQuery}
 			 */
-			$.fn.changeFocus = function(beforeChange) {
+			$.fn.changeFocus = function(callback) {
 				var $thisFirst = this.first(),
 					hasTabindex = $thisFirst.attr('tabindex');
-				
-				//beforeChange 매개변수가 함수일 때
-				if(typeof beforeChange === 'function') {
-					beforeChange();
-				}
 				
 				//tabindex 속성을 가지고 있지 않을 때
 				if(!hasTabindex) {
@@ -29,6 +24,11 @@ try {
 				}
 				
 				$thisFirst.focus();
+
+				//beforeChange 매개변수가 함수일 때
+				if(typeof callback === 'function') {
+					callback();
+				}
 
 				if(!hasTabindex) {
 					$thisFirst.removeAttr('tabindex');
