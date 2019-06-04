@@ -15,15 +15,15 @@ try {
 			 * @return {jQuery}
 			 */
 			$.fn.changeFocus = function(callback) {
-				var $thisFirst = this.first(),
-					hasTabindex = $thisFirst.attr('tabindex');
+				var $firstOfThis = this.first(),
+					hasTabindex = $firstOfThis.attr('tabindex');
 				
 				//tabindex 속성을 가지고 있지 않을 때
 				if(!hasTabindex) {
-					$thisFirst.attr('tabindex', -1);
+					$firstOfThis.attr('tabindex', -1);
 				}
 				
-				$thisFirst.focus();
+				$firstOfThis.focus();
 
 				//beforeChange 매개변수가 함수일 때
 				if(typeof callback === 'function') {
@@ -31,7 +31,7 @@ try {
 				}
 
 				if(!hasTabindex) {
-					$thisFirst.removeAttr('tabindex');
+					$firstOfThis.removeAttr('tabindex');
 				}
 
 				return this;
