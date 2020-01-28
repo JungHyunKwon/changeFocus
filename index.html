@@ -12,13 +12,13 @@
 			var $div = $('div');
 
 			$(document).on('click', function(event) {
-				console.log('before');
+				console.log(1);
 
 				$div.changeFocus(function() {
-					console.log('middle');
+					console.log(2);
 				});
 
-				console.log('after');
+				console.log(3);
 			});
 		});
 	</script>

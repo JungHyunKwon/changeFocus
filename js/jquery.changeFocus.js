@@ -15,7 +15,7 @@
 		var $firstThis = this.first(),
 			hasTabindex = $firstThis.attr('tabindex');
 		
-		//tabindex 속성을 가지고 있지 않을 때
+		//속성을 가지고 있지 않을 때
 		if(!hasTabindex) {
 			$firstThis.attr('tabindex', -1);
 		}
@@ -27,11 +27,11 @@
 			callback();
 		}
 		
-		//tabindex 속성을 가지고 있을 때
+		//속성을 가지고 있지 않았었을 때
 		if(!hasTabindex) {
 			$firstThis.removeAttr('tabindex');
 		}
 
-		return this;
+		return $firstThis;
 	};
 })(jQuery);
